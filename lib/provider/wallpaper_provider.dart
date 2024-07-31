@@ -28,7 +28,9 @@ class WallpaperProvider extends ChangeNotifier
 
   void listNull()
   {
+    print(wallpaperModelSerach.hits);
     wallpaperModelSerach.hits=null;
+    print(wallpaperModelSerach.hits);
     notifyListeners();
   }
 

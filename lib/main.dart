@@ -7,7 +7,6 @@ import 'package:wallpepar_app/screens/home/view/home_page.dart';
 
 void main() {
   runApp(MultiProvider(
-
     providers: [
       ChangeNotifierProvider(create: (context) => WallpaperProvider()),
     ],
@@ -21,12 +20,25 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      darkTheme: ThemeData.dark(),
+      theme: ThemeData(
+        brightness: Brightness.light,
+        /* light theme settings */
+      ),
+      darkTheme: ThemeData(
+        brightness: Brightness.dark,
+        /* dark theme settings */
+      ),
+      themeMode: ThemeMode.dark,
+      /* ThemeMode.system to follow system theme,
+         ThemeMode.light for light theme,
+         ThemeMode.dark for dark theme
+      */
       debugShowCheckedModeBanner: false,
-      home: NavigationBar(),
+      home: HomePage(),
     );
   }
 }
+
 
 class NavigationBar extends StatelessWidget {
   NavigationBar({Key? key}) : super(key: key);
@@ -96,7 +108,7 @@ class NavigationBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return NavbarRouter(
       type: NavbarType.floating,
-      
+
       errorBuilder: (context) {
         return const Center(child: Text('Error 404'));
       },

@@ -3,7 +3,7 @@ import 'package:http/http.dart' as http;
 import 'package:http/http.dart';
 
 class ApiServices {
-  String baseUrl = "https://pixabay.com/api/?key=38641586-c40f23dcd95b444a55b356a04&order=latest&per_page=200";
+  String baseUrl = "https://pixabay.com/api/?key=38641586-c40f23dcd95b444a55b356a04&per_page=200&order=trending&orientation=vertical";
   static ApiServices apiServices = ApiServices();
   Future<Map> fetchData() async {
     Response response = await http.get(Uri.parse(baseUrl));
